@@ -10,19 +10,40 @@ const style = {
   borderWidth: 2,
   borderStyle: 'dashed',
 }
+
+function textToNumber(text){
+  return parseInt(text.replace(/\D+/g, ''))
+}
 class MakePrediction extends Component{
   constructor(props){
     super(props)
 
-    this.state = {}
+    this.state = {
+      text: '',
+      number: null,
+    }
   }
 
   render(){
-    return <TextInput
-      multiline = {true}
-      style={style}
-      onChangeText={(text) => this.setState({text})}
-    />
+    return <>
+      <TextInput
+        multiline = {true}
+        style={{...style, marginBottom: 10}}
+        placeholder="A thing will happen"
+        value={this.state.text}
+        onChangeText={(text) => this.setState({text})}
+      />
+      <TextInput
+        multiline = {true}
+        style={style}
+        placeholder=".5"
+        keyboardType = 'numeric'
+        value={this.state.number && !isNaN(this.state.number) ? String(this.state.number) : ''}
+        onChangeText={(text) => {
+          if(text.length) this.setState({number: textToNumber(text)})
+        }}
+      />
+    </>
   }
 }
 
