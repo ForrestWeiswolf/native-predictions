@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { AppRegistry, TextInput } from 'react-native';
+import { AppRegistry, TextInput, View } from 'react-native';
 
 const style = {
-  height: 100,
-  width: 200,
-  fontSize: 60,
+  minHeight: 45,
+  width: 250,
+  fontSize: 40,
   borderColor: 'black',
   borderWidth: 2,
-  borderStyle: 'dashed'
+  borderStyle: 'dashed',
 }
 class MakePrediction extends Component{
   constructor(props){
@@ -19,6 +19,7 @@ class MakePrediction extends Component{
 
   render(){
     return <TextInput
+      multiline = {true}
       style={style}
       onChangeText={(text) => this.setState({text})}
     />
