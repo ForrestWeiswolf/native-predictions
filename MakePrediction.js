@@ -12,7 +12,7 @@ const style = {
 }
 
 function textToNumber(text){
-  return parseInt(text.replace(/\D+/g, ''))
+  return text.replace(/[^\d.]+/g, '')
 }
 class MakePrediction extends Component{
   constructor(props){
