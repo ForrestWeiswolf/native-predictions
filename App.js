@@ -1,8 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Button } from 'react-native'
+import { createStackNavigator, createAppContainer } from 'react-navigation'
 import MakePrediction from './MakePrediction.js'
 
-export default class App extends React.Component {
+class PredictionScreen extends React.Component {
   constructor() {
     super()
 
@@ -21,8 +22,40 @@ export default class App extends React.Component {
             }))
           }
         />
+
+        <Button
+          title="Go to list"
+          onPress={() => this.props.navigation.navigate('List')}
+        />
       </View>
     )
+  }
+}
+
+class ListScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>List Placeholder</Text>
+      </View>
+    )
+  }
+}
+
+const AppNavigator = createStackNavigator(
+  {
+    Prediction: PredictionScreen,
+    List: ListScreen,
+  },
+  {
+    initialRouteName: 'Prediction',
+  }
+)
+
+const AppContainer = createAppContainer(AppNavigator)
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />
   }
 }
 
