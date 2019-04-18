@@ -46,13 +46,17 @@ class MakePrediction extends Component{
       <Button
         title='Save'
         color='#B1D4B4'
-        onPress={() => {}}
+        onPress={() => {
+          this.props.save({statement: this.state.text, confidence: this.state.number})
+          this.setState({text: '', number: null})
+        }}
       />
     </>
   }
 }
 
 MakePrediction.propTypes = {
+  save: PropTypes.func
 }
 
 export default MakePrediction
