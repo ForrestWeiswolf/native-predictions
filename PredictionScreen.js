@@ -23,11 +23,6 @@ export default class PredictionScreen extends React.Component {
             }))
           }
         />
-
-        <Button
-          title="Go to list"
-          onPress={() => this.props.navigation.navigate('List')}
-        />
       </View>
     )
   }

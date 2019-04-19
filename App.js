@@ -1,9 +1,9 @@
 import React from 'react'
-import { createStackNavigator, createAppContainer } from 'react-navigation'
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation'
 import PredictionScreen from './PredictionScreen.js'
 import ListScreen from './ListScreen.js'
 
-const AppNavigator = createStackNavigator(
+const AppNavigator = createBottomTabNavigator(
   {
     Prediction: PredictionScreen,
     List: ListScreen,
