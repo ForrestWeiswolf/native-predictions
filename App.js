@@ -1,7 +1,8 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { Text, View, Button } from 'react-native'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 import MakePrediction from './MakePrediction.js'
+import styles from './styles'
 
 class PredictionScreen extends React.Component {
   constructor() {
@@ -58,13 +59,3 @@ export default class App extends React.Component {
     return <AppContainer />
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10,
-  },
-})
